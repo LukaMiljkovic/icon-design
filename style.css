@@ -1,0 +1,168 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: rgb(252, 252, 252);
+}
+
+.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: box-shadow .3s;
+    background-color: white;
+}
+
+.icon:hover{
+    cursor: pointer;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    animation: shake .4s ease;
+}
+
+.icon::before{
+    content: "1";
+    background: linear-gradient(
+    to right,
+    red 0%,
+    rgb(254, 62, 62) 50%,
+    red 50%,
+    red 100%
+  );
+    color: white;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes shake {
+    0%{
+        transform: rotateZ(0deg);
+    }
+
+    25%{
+        transform: rotateZ(5deg);
+    }
+
+    50%{
+        transform: rotateZ(0deg);
+    }
+
+    75%{
+        transform: rotateZ(-5deg);
+    }
+}
+
+.icon img{
+    width: 32px;
+    transition: width .3s;
+}
+
+.icon:hover img{
+    width: 20px;
+}
+
+#chat{
+    position: absolute;
+    padding: 1rem;
+    background-color: rgb(247, 247, 247);
+    display: none;
+    width: 300px;
+    height: 300px;
+    animation: showChat 1s ease forwards;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    overflow-y: scroll;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#chat.active{
+    display: block;
+}
+
+.exit{
+    border-radius: 50%;
+    position: relative;
+    top: -10px;
+    left: -10px;
+    box-shadow: none;
+    transition: all .2s;
+}
+
+.exit:hover{
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    top: -8px;
+}
+
+.chat::-webkit-scrollbar{
+    width: 7px;
+}
+
+.chat::-webkit-scrollbar-track{
+    background: #f1f1f1;
+}
+
+.chat::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+.user-wrapper{
+    margin-bottom: 1rem;
+}
+
+.user-wrapper img{
+    border-radius: 50%;
+    background-color: white;
+}
+
+.user-wrapper:nth-of-type(2n) img{
+    position: relative;
+    left: 240px;
+}
+
+.user-wrapper p{
+    line-height: 1.3rem;
+    padding: .5rem;
+    background-color: white;
+    border-radius: 1rem;
+}
+
+.user-wrapper:nth-of-type(2n) p{
+    background-color: black;
+    color: white;
+}
+
+@keyframes showChat {
+    0%{
+        width: 0;
+        height: 0;
+    }
+
+    25%{
+        width: 300px;
+    }
+
+    50%{
+        height: 300px;
+    }
+}
